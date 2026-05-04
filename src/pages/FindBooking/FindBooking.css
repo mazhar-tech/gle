@@ -1,0 +1,277 @@
+/* Find booking — Figma find booking desktop */
+
+.find-booking {
+  --fb-max: 30rem; /* 480px */
+  --fb-text: #121c2a;
+  --fb-subtitle: #414754;
+  --fb-label: #434655;
+  --fb-placeholder: #737686;
+  --fb-input-bg: rgba(230, 232, 234, 0.5);
+  --fb-blue-start: #0054b5;
+  --fb-blue-end: #7ba0ff;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: auto;
+  margin-inline: calc(-1 * var(--space-4));
+  padding-top: 2rem;
+  padding-inline: var(--space-4);
+  padding-bottom: clamp(2rem, 5vw, 3rem);
+  background: #eff4ff;
+  isolation: isolate;
+}
+
+@media (min-width: 48rem) {
+  .find-booking {
+    margin-inline: calc(-1 * var(--space-8));
+    padding-inline: var(--space-8);
+  }
+}
+
+@media (min-width: 64rem) {
+  .find-booking {
+    padding-inline: 0;
+  }
+}
+
+.find-booking__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: var(--fb-max);
+  margin-inline: auto;
+}
+
+.find-booking__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.find-booking__title {
+  margin: 0;
+  max-width: 25.125rem; /* 402px */
+  font-family: var(--font-family-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.075rem;
+  color: var(--fb-text);
+}
+
+.find-booking__subtitle {
+  margin: 0;
+  max-width: 23.5625rem; /* 377px */
+  font-family: var(--font-family-ui);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: var(--fb-subtitle);
+}
+
+.find-booking__card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2rem;
+  width: 100%;
+  max-width: var(--fb-max);
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(18, 28, 42, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+}
+
+.find-booking__form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.5rem;
+  width: 100%;
+  padding-top: 0.5rem;
+}
+
+.find-booking__field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.find-booking__label {
+  padding-inline-start: 0.25rem;
+  font-family: var(--font-family-ui);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.3125rem;
+  color: var(--fb-label);
+}
+
+.find-booking__input-shell {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: 1.125rem 1rem 1.125rem 3rem;
+  border-radius: 9999px;
+  background: var(--fb-input-bg);
+  isolation: isolate;
+}
+
+.find-booking__input-shell:focus-within {
+  box-shadow: 0 0 0 2px rgba(0, 84, 181, 0.2);
+}
+
+.find-booking__input-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  padding-left: 1rem;
+  color: var(--fb-placeholder);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.find-booking__input-icon--ticket {
+  width: 2.25rem;
+}
+
+.find-booking__input-icon svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.find-booking__input {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-family: var(--font-family-ui);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  color: #191c1e;
+}
+
+.find-booking__input::placeholder {
+  color: var(--fb-placeholder);
+}
+
+.find-booking__input:focus {
+  outline: none;
+}
+
+.find-booking__submit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 3.25rem;
+  margin-top: 0;
+  padding: 0.75rem 2.5rem;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-family: var(--font-family-ui);
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #ffffff;
+  background: linear-gradient(101.25deg, var(--fb-blue-start) 0%, var(--fb-blue-end) 100%);
+  box-shadow: 0 10px 30px rgba(18, 28, 42, 0.08);
+}
+
+.find-booking__submit:hover {
+  filter: brightness(1.03);
+}
+
+.find-booking__submit:focus-visible {
+  outline: none;
+  box-shadow: 0 10px 30px rgba(18, 28, 42, 0.08), 0 0 0 2px #ffffff, 0 0 0 4px #e63946;
+}
+
+.find-booking__submit-icon {
+  display: flex;
+  width: 1rem;
+  height: 1rem;
+  color: #ffffff;
+}
+
+.find-booking__submit-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.find-booking__spotlight {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 8rem; /* 128px */
+  border-radius: 1rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.find-booking__spotlight-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.find-booking__spotlight-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+
+.find-booking__spotlight-caption {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: 1rem;
+  max-width: 14rem;
+  font-family: var(--font-family-ui);
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+@media (max-width: 30rem) {
+  .find-booking__card {
+    padding: 1.5rem;
+  }
+}

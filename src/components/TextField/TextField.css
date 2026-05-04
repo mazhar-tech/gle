@@ -1,0 +1,114 @@
+.text-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.text-field__label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding-inline-start: var(--space-1);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  line-height: 1.3125rem;
+  color: var(--field-label-color);
+}
+
+.text-field__control {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  min-height: var(--field-min-height);
+  border: 1px solid var(--field-border);
+  border-radius: var(--field-radius);
+  background-color: var(--field-bg);
+}
+
+.text-field__leading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--field-leading-width);
+  padding-inline: var(--space-4);
+  color: var(--field-icon-color);
+}
+
+.text-field__divider {
+  display: block;
+  flex-shrink: 0;
+  width: 1px;
+  align-self: stretch;
+  min-height: 1.5rem;
+  margin-block: auto;
+  background-color: var(--field-divider);
+}
+
+.text-field__input {
+  display: block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 0;
+  width: 100%;
+  padding-block: var(--field-input-padding-block);
+  padding-inline: var(--field-input-padding-inline);
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  line-height: var(--space-6);
+  color: var(--field-input-color);
+}
+
+.text-field__input::placeholder {
+  color: var(--field-placeholder-color);
+}
+
+.text-field__input:focus {
+  outline: none;
+}
+
+.text-field__control:focus-within {
+  box-shadow: 0 0 0 2px rgba(0, 84, 181, 0.2);
+}
+
+.text-field__input--date {
+  min-height: 2.5rem;
+}
+
+.text-field__trailing {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding-inline-end: var(--space-2);
+  padding-inline-start: var(--space-1);
+  color: var(--field-placeholder-color);
+}
+
+.text-field__chevron {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.text-field__icon {
+  display: block;
+  width: 1.369rem;
+  height: 1.369rem;
+}
+
+.text-field__icon--calendar {
+  width: 1.125rem;
+  height: 1.25rem;
+}

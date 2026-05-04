@@ -1,0 +1,684 @@
+.confirm-trip {
+  --confirm-content-max: 52rem;
+  --confirm-action-inner-max: 56rem;
+  --confirm-glass-bg: rgba(255, 255, 255, 0.85);
+  --confirm-glass-border: rgba(255, 255, 255, 0.2);
+  --confirm-glass-shadow: 0 0.625rem 1.875rem rgba(18, 28, 42, 0.08);
+  --confirm-radius: 1.5rem;
+  --confirm-blue: #004ac6;
+  --confirm-purple: #712ae2;
+
+  position: relative;
+  flex-grow: 1;
+  width: auto;
+  margin-inline: calc(-1 * var(--space-4));
+  padding-top: 2rem;
+  padding-inline: var(--space-4);
+  padding-bottom: clamp(2rem, 5vw, 3rem);
+  background: #eff4ff;
+  isolation: isolate;
+}
+
+@media (min-width: 48rem) {
+  .confirm-trip {
+    margin-inline: calc(-1 * var(--space-8));
+    padding-inline: var(--space-8);
+  }
+}
+
+.confirm-trip__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: var(--confirm-content-max);
+  margin-inline: auto;
+}
+
+.confirm-trip__back {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.625rem;
+  align-self: flex-start;
+  width: 100%;
+  max-width: var(--confirm-content-max);
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: #121c2a;
+  text-decoration: none;
+}
+
+.confirm-trip__back:hover {
+  color: #004ac6;
+}
+
+.confirm-trip__back:focus-visible {
+  outline: none;
+  border-radius: 0.25rem;
+  box-shadow: var(--nav-link-focus-ring);
+}
+
+.confirm-trip__back-icon {
+  display: inline-flex;
+  color: #121c2a;
+}
+
+.confirm-trip__back-icon svg {
+  display: block;
+}
+
+.confirm-trip__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.confirm-trip__title {
+  width: 100%;
+  font-family: var(--font-family-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.075rem;
+  color: #121c2a;
+}
+
+.confirm-trip__subtitle {
+  width: 100%;
+  font-family: var(--font-family-ui);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  color: #414754;
+}
+
+.confirm-trip__bento {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.confirm-trip__card {
+  box-sizing: border-box;
+  border: 1px solid var(--confirm-glass-border);
+  border-radius: var(--confirm-radius);
+  background: var(--confirm-glass-bg);
+}
+
+.confirm-trip__card--summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  flex: 1 1 22rem;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  height: 545px;
+  min-height: 545px;
+  max-width: 34.166875rem;
+  padding: 2rem;
+  overflow-y: auto;
+  box-shadow: var(--confirm-glass-shadow);
+}
+
+.confirm-trip__aside {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.5rem;
+  flex: 0 1 16.333125rem;
+  width: 100%;
+  max-width: 16.333125rem;
+}
+
+/* Figma: Amenities card 261.33×242, padding 24, gap 16 */
+.confirm-trip__card--amenities {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  max-width: 16.333125rem;
+  height: 15.125rem;
+  min-height: 15.125rem;
+  padding: 1.5rem;
+  flex: none;
+  align-self: stretch;
+  box-shadow: var(--confirm-glass-shadow);
+}
+
+.confirm-trip__card--media {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.confirm-trip__media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(var(--confirm-radius) - 1px);
+}
+
+.confirm-trip__card--info {
+  flex: 1 1 100%;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: var(--confirm-glass-shadow);
+}
+
+.confirm-trip__summary-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.confirm-trip__summary-titles {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.confirm-trip__tier-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  background: rgba(37, 99, 235, 0.1);
+  font-family: var(--font-family-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1rem;
+  letter-spacing: 0.0375rem;
+  color: #004ac6;
+}
+
+.confirm-trip__route-title {
+  margin: 0;
+  font-family: var(--font-family-ui);
+  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+  font-weight: 700;
+  line-height: 2.25rem;
+  letter-spacing: -0.046875rem;
+  color: #191c1e;
+}
+
+.confirm-trip__route-favorite {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--confirm-blue);
+  line-height: 0;
+}
+
+.confirm-trip__route-favorite svg {
+  width: 1.5rem;
+  height: 1.78125rem;
+}
+
+.confirm-trip__timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2rem;
+  width: 100%;
+  isolation: isolate;
+}
+
+.confirm-trip__timeline-line {
+  position: absolute;
+  left: 0.6875rem;
+  top: 1rem;
+  bottom: 4.0625rem;
+  width: 2px;
+  background: rgba(195, 198, 215, 0.3);
+  z-index: 0;
+}
+
+.confirm-trip__timeline-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.confirm-trip__timeline-row--arrive {
+  z-index: 3;
+}
+
+.confirm-trip__timeline-gutter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 0.25rem;
+  width: 1.5rem;
+  flex-shrink: 0;
+}
+
+.confirm-trip__timeline-gutter--center {
+  align-items: center;
+  padding-top: 0;
+  justify-content: center;
+}
+
+.confirm-trip__timeline-dot {
+  box-sizing: border-box;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 4px solid #ffffff;
+  border-radius: 9999px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.confirm-trip__timeline-dot--depart {
+  background: var(--confirm-blue);
+}
+
+.confirm-trip__timeline-dot--arrive {
+  background: var(--confirm-purple);
+}
+
+.confirm-trip__timeline-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.confirm-trip__timeline-meta {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.confirm-trip__timeline-kind {
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  letter-spacing: 0.0875rem;
+  text-transform: uppercase;
+}
+
+.confirm-trip__timeline-kind--depart {
+  color: var(--confirm-blue);
+}
+
+.confirm-trip__timeline-kind--arrive {
+  color: var(--confirm-purple);
+}
+
+.confirm-trip__timeline-date {
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: #434655;
+}
+
+.confirm-trip__timeline-time {
+  margin: 0;
+  width: 100%;
+  font-family: var(--font-family-ui);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+  color: #191c1e;
+}
+
+.confirm-trip__timeline-place {
+  margin: 0;
+  width: 100%;
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: #434655;
+}
+
+.confirm-trip__timeline-duration {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.confirm-trip__duration-icon {
+  display: inline-flex;
+  color: #737686;
+  line-height: 0;
+}
+
+.confirm-trip__duration-icon svg {
+  display: block;
+}
+
+.confirm-trip__duration-pill-wrap {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.confirm-trip__duration-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  background: #e6e8ea;
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  color: #434655;
+}
+
+.confirm-trip__amenities-title {
+  margin: 0;
+  width: 100%;
+  height: 1.75rem;
+  font-family: var(--font-family-ui);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+  display: flex;
+  align-items: center;
+  color: #191c1e;
+}
+
+.confirm-trip__amenities-chips {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 0.5rem 0.4375rem;
+  width: 100%;
+  min-height: 9.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.confirm-trip__amenity-chip {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: #e6e8ea;
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: #434655;
+}
+
+.confirm-trip__amenity-chip-icon {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  line-height: 0;
+  color: #434655;
+}
+
+.confirm-trip__amenity-chip-icon svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.confirm-trip__amenity-chip-icon svg path {
+  fill: currentColor;
+}
+
+/* Asset dimensions: power 9×14, wifi 18×13, TV 15×14, snacks 17×17 */
+.confirm-trip__amenity-chip-icon--power svg {
+  width: 0.5625rem;
+  height: 0.875rem;
+}
+
+.confirm-trip__amenity-chip-icon--wifi svg {
+  width: 1.125rem;
+  height: 0.8125rem;
+}
+
+.confirm-trip__amenity-chip-icon--monitor svg {
+  width: 0.9375rem;
+  height: 0.875rem;
+}
+
+.confirm-trip__amenity-chip-icon--snack svg {
+  width: 1.0625rem;
+  height: 1.0625rem;
+}
+
+.confirm-trip__info-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+.confirm-trip__info-icon-wrap {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1.25rem;
+  background: rgba(0, 74, 198, 0.1);
+  color: var(--confirm-blue);
+}
+
+.confirm-trip__info-icon-wrap svg {
+  display: block;
+}
+
+.confirm-trip__info-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.confirm-trip__info-title {
+  margin: 0;
+  font-family: var(--font-family-ui);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+  color: #191c1e;
+}
+
+.confirm-trip__info-text {
+  margin: 0;
+  font-family: var(--font-family-ui);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.625rem;
+  color: #434655;
+}
+
+/* Full viewport width (break out of .app__main max-width) — Figma: 1440×85 bar */
+.confirm-trip__action-bar {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  max-width: none;
+  margin-block-start: 2rem;
+  margin-left: 0;
+  margin-right: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-block: 1rem;
+  /* Figma: 16px vertical, ~304px horizontal on 1440px → centers 832px row */
+  padding-inline: max(var(--space-4), calc((100vw - var(--confirm-content-max)) / 2));
+  min-height: 5.3125rem;
+  border: none;
+  border-top: 1px solid #f1f5f9;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 -0.625rem 2.5rem rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.25rem);
+}
+
+.confirm-trip__action-bar-inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--confirm-action-inner-max);
+  min-height: 3.25rem;
+  padding: 0;
+}
+
+.confirm-trip__action-bar-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
+}
+
+.confirm-trip__action-bar-label {
+  font-family: var(--font-family-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1rem;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.confirm-trip__action-bar-amount {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 0;
+}
+
+.confirm-trip__action-bar-amount-main {
+  font-family: var(--font-family-ui);
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 2rem;
+  letter-spacing: -0.0375rem;
+  color: #191c1e;
+}
+
+.confirm-trip__action-bar-amount-suffix {
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  letter-spacing: -0.0375rem;
+  color: #94a3b8;
+}
+
+/* Figma: 201×52, padding 12px 40px */
+.confirm-trip__cta.button.button--primary {
+  flex: none;
+  min-width: 12.5625rem;
+  min-height: 3.25rem;
+  padding-block: 0.75rem;
+  padding-inline: 2.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 0.625rem 1.875rem rgba(18, 28, 42, 0.08);
+  background: linear-gradient(101.25deg, #0054b5 0%, #7ba0ff 100%);
+}
+
+@media (max-width: 52rem) {
+  .confirm-trip__aside {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .confirm-trip__card--summary {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  /* Amenities card: full width of column on small screens (Figma width only on wider layout) */
+  .confirm-trip__card--amenities {
+    max-width: 100%;
+  }
+}
+
+/* 320–360px: keep price + pill in one row; CTA must not use full width (min-width + padding were too wide) */
+@media (max-width: 22.5rem) {
+  .confirm-trip__action-bar {
+    padding-inline: 0.75rem;
+  }
+
+  .confirm-trip__action-bar-inner {
+    flex-wrap: nowrap;
+    gap: 0.5rem 0.75rem;
+  }
+
+  .confirm-trip__action-bar-price {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .confirm-trip__action-bar-amount-main {
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+  }
+
+  .confirm-trip__cta.button.button--primary {
+    min-width: 0;
+    padding-inline: 1rem;
+    white-space: nowrap;
+  }
+}
+

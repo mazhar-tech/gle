@@ -1,0 +1,865 @@
+.choose-seats {
+  --choose-content-max: 54rem;
+  --choose-action-inner-max: 56rem;
+  --choose-glass-bg: rgba(255, 255, 255, 0.85);
+  --choose-glass-border: rgba(255, 255, 255, 0.2);
+  --choose-glass-shadow: 0 0.625rem 1.875rem rgba(18, 28, 42, 0.08);
+  --choose-card-radius: 1.25rem;
+  --choose-blue: #004ac6;
+
+  position: relative;
+  flex-grow: 1;
+  width: auto;
+  margin-inline: calc(-1 * var(--space-4));
+  padding-top: 2rem;
+  padding-inline: var(--space-4);
+  padding-bottom: clamp(2rem, 5vw, 3rem);
+  background: #eff4ff;
+  isolation: isolate;
+}
+
+@media (min-width: 48rem) {
+  .choose-seats {
+    margin-inline: calc(-1 * var(--space-8));
+    padding-inline: var(--space-8);
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .choose-seats {
+    padding-inline: 1.5rem;
+  }
+}
+
+.choose-seats__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: var(--choose-content-max);
+  margin-inline: auto;
+}
+
+.choose-seats__back {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.625rem;
+  align-self: flex-start;
+  width: 100%;
+  max-width: var(--choose-content-max);
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: #121c2a;
+  text-decoration: none;
+}
+
+.choose-seats__back:hover {
+  color: var(--choose-blue);
+}
+
+.choose-seats__back:focus-visible {
+  outline: none;
+  border-radius: 0.25rem;
+  box-shadow: var(--nav-link-focus-ring);
+}
+
+.choose-seats__back-icon {
+  display: inline-flex;
+  color: #121c2a;
+}
+
+.choose-seats__back-icon svg {
+  display: block;
+}
+
+.choose-seats__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.choose-seats__title {
+  width: 100%;
+  font-family: var(--font-family-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.075rem;
+  color: #121c2a;
+}
+
+.choose-seats__subtitle {
+  width: 100%;
+  font-family: var(--font-family-ui);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  color: #414754;
+}
+
+.choose-seats__trip-card {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 2rem;
+  border: 1px solid var(--choose-glass-border);
+  border-radius: var(--choose-card-radius);
+  background: var(--choose-glass-bg);
+  box-shadow: var(--choose-glass-shadow);
+}
+
+.choose-seats__trip-inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  width: 100%;
+}
+
+.choose-seats__trip-primary {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.choose-seats__trip-icon-wrap {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background: rgba(0, 74, 198, 0.1);
+  color: var(--choose-blue);
+}
+
+.choose-seats__trip-icon-wrap svg {
+  display: block;
+  width: 1rem;
+  height: auto;
+}
+
+.choose-seats__trip-icon-wrap svg path {
+  fill: currentcolor;
+}
+
+.choose-seats__trip-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.choose-seats__trip-meta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.choose-seats__trip-id-label {
+  font-family: var(--font-family-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1rem;
+  letter-spacing: 0.0375rem;
+  text-transform: uppercase;
+  color: var(--choose-blue);
+}
+
+.choose-seats__trip-dot {
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 9999px;
+  background: #c3c6d7;
+}
+
+.choose-seats__trip-dot-label {
+  font-family: var(--font-family-ui);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1rem;
+  color: #434655;
+}
+
+.choose-seats__trip-route {
+  margin: 0;
+  font-family: var(--font-family-ui);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+  color: #191c1e;
+}
+
+/* Desktop: time stack + clock; DOM order is clock then time — row-reverse shows time first */
+.choose-seats__trip-departure {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 1.5rem;
+  border-left: 1px solid rgba(195, 198, 215, 0.3);
+}
+
+.choose-seats__trip-time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.125rem;
+}
+
+.choose-seats__trip-date-label {
+  font-family: var(--font-family-ui);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  color: #434655;
+}
+
+.choose-seats__trip-time {
+  font-family: var(--font-family-ui);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+  color: #191c1e;
+}
+
+.choose-seats__trip-clock {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  color: #c3c6d7;
+  line-height: 0;
+}
+
+.choose-seats__trip-clock svg {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+@media (max-width: 47.99rem) {
+  /* Trip summary card — mobile (Figma 342×194, ≤768px) */
+  .choose-seats__trip-card {
+    align-self: stretch;
+    width: 100%;
+    max-width: 23.375rem;
+    margin-inline: auto;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 0.625rem 1.875rem rgba(18, 28, 42, 0.08);
+  }
+
+  .choose-seats__trip-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 1.5rem;
+  }
+
+  .choose-seats__trip-primary {
+    align-self: stretch;
+    gap: 1rem;
+  }
+
+  .choose-seats__trip-icon-wrap {
+    width: 2.908125rem;
+    min-width: 2.908125rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+  }
+
+  .choose-seats__trip-icon-wrap svg {
+    width: 1rem;
+    height: 1.1875rem;
+  }
+
+  .choose-seats__trip-copy {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 0.25rem;
+  }
+
+  .choose-seats__trip-departure {
+    flex-direction: row;
+    align-self: stretch;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+    border: none;
+  }
+
+  .choose-seats__trip-time-block {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .choose-seats__trip-date-label {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    text-align: right;
+  }
+
+  .choose-seats__trip-time {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .choose-seats__trip-clock svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+.choose-seats__layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+}
+
+.choose-seats__seat-panel {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 22rem;
+  max-width: 30.666875rem;
+  padding: 2rem;
+  gap: 2.5rem;
+  border: 1px solid var(--choose-glass-border);
+  border-radius: var(--choose-card-radius);
+  background: var(--choose-glass-bg);
+  box-shadow: var(--choose-glass-shadow);
+}
+
+@media (max-width: 47.99rem) {
+  .choose-seats__seat-panel {
+    flex: 1 1 100%;
+    padding-inline: var(--space-3);
+    padding-block: var(--space-5);
+  }
+}
+
+.choose-seats__legend {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  width: 100%;
+  padding: 0.5rem 0.5rem;
+  border-radius: 9999px;
+  background: #e6e8ea;
+}
+
+.choose-seats__legend-item {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+}
+
+.choose-seats__legend-swatch {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+  flex-shrink: 0;
+}
+
+.choose-seats__legend-swatch--available {
+  background: #ffffff;
+  border: 1px solid #c3c6d7;
+}
+
+.choose-seats__legend-swatch--selected {
+  background: var(--choose-blue);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.choose-seats__legend-swatch--unavailable {
+  background: #9e9e9e;
+}
+
+.choose-seats__legend-label {
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: #434655;
+}
+
+.choose-seats__bus-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 21.25rem;
+  padding: 4rem 2rem 2rem;
+  gap: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 2.5rem;
+  background: rgba(242, 244, 246, 0.5);
+}
+
+@media (max-width: 47.99rem) {
+  /* Seat legend — mobile (Figma): pill → 16px radius, centered wrap, 276×~78 */
+  .choose-seats__legend {
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    gap: 1.36875rem;
+    width: 100%;
+    max-width: 17.25rem;
+    min-height: 4.86875rem;
+    margin-inline: auto;
+    padding: 0.5rem;
+    border-radius: 1rem;
+  }
+
+  .choose-seats__legend-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 1rem;
+    gap: 0.5rem;
+  }
+
+  .choose-seats__legend-swatch {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.25rem;
+  }
+
+  .choose-seats__bus-shell {
+    padding-inline: var(--space-3);
+    padding-top: 3rem;
+    padding-bottom: var(--space-5);
+  }
+}
+
+.choose-seats__bus-grid-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  width: 100%;
+  max-width: 17.125rem;
+}
+
+.choose-seats__col-labels {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2.75rem 1fr 1fr;
+  gap: 0.5rem 0.75rem;
+  width: 100%;
+  font-family: var(--font-family-ui);
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 0.9375rem;
+  letter-spacing: -0.03125rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: #737686;
+}
+
+.choose-seats__col-labels-aisle {
+  visibility: hidden;
+}
+
+.choose-seats__grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2.75rem 1fr 1fr;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+  width: 100%;
+}
+
+.choose-seats__row-aisle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-ui);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  line-height: 0.875rem;
+  text-transform: uppercase;
+  color: rgba(115, 118, 134, 0.35);
+}
+
+.choose-seats__seat {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.825rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-family: var(--font-family-ui);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1rem;
+  color: #434655;
+}
+
+.choose-seats__seat--available {
+  background: #ffffff;
+  border: 1px solid rgba(195, 198, 215, 0.5);
+  cursor: pointer;
+}
+
+.choose-seats__seat--available:hover {
+  border-color: var(--choose-blue);
+}
+
+.choose-seats__seat--available:focus-visible {
+  outline: none;
+  box-shadow: var(--nav-link-focus-ring);
+}
+
+.choose-seats__seat--selected {
+  background: var(--choose-blue);
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 0.625rem 0.9375rem -0.1875rem rgba(0, 74, 198, 0.3),
+    0 0.25rem 0.375rem -0.25rem rgba(0, 74, 198, 0.3);
+}
+
+.choose-seats__seat--unavailable {
+  background: #9e9e9e;
+  color: #ffffff;
+  cursor: not-allowed;
+}
+
+.choose-seats__seat--blocked {
+  background: #e6e8ea;
+  color: #737686;
+  cursor: not-allowed;
+}
+
+.choose-seats__bus-foot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.choose-seats__restroom-pill {
+  margin: 0;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid rgba(195, 198, 215, 0.2);
+  border-radius: 9999px;
+  background: #eceef0;
+  font-family: var(--font-family-ui);
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 0.9375rem;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  color: #737686;
+}
+
+.choose-seats__assist {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.choose-seats__assist-dot {
+  width: 0.65625rem;
+  height: 0.65625rem;
+  margin-top: 0.35rem;
+  border-radius: 9999px;
+  background: var(--choose-blue);
+  flex-shrink: 0;
+}
+
+.choose-seats__assist-title {
+  margin: 0;
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  color: #191c1e;
+}
+
+.choose-seats__assist-note {
+  margin: 0;
+  font-family: var(--font-family-ui);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  color: #434655;
+}
+
+.choose-seats__side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1 1 18rem;
+  max-width: 21.333125rem;
+  width: 100%;
+}
+
+@media (max-width: 47.99rem) {
+  .choose-seats__side {
+    flex: 1 1 100%;
+    max-width: none;
+    width: 100%;
+  }
+}
+
+.choose-seats__card {
+  box-sizing: border-box;
+  border: 1px solid var(--choose-glass-border);
+  border-radius: var(--choose-card-radius);
+  background: var(--choose-glass-bg);
+  box-shadow: var(--choose-glass-shadow);
+}
+
+.choose-seats__card--experience {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.choose-seats__experience-eyebrow {
+  margin: 0;
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  letter-spacing: 0.0875rem;
+  text-transform: uppercase;
+  color: #434655;
+}
+
+.choose-seats__perk-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.choose-seats__perk {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  background: rgba(230, 232, 234, 0.5);
+}
+
+.choose-seats__perk-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--choose-blue);
+  line-height: 0;
+}
+
+.choose-seats__perk-icon svg {
+  display: block;
+  width: auto;
+  height: 1.0625rem;
+}
+
+.choose-seats__perk-text {
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: #191c1e;
+}
+
+.choose-seats__card--cabin {
+  overflow: hidden;
+  padding: 0;
+}
+
+.choose-seats__cabin-img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.choose-seats__cabin-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.choose-seats__cabin-eyebrow {
+  margin: 0;
+  font-family: var(--font-family-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1rem;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+  color: var(--choose-blue);
+}
+
+.choose-seats__cabin-copy {
+  margin: 0;
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.4375rem;
+  color: #434655;
+}
+
+/* Full viewport width (break out of .app__main max-width) — matches ConfirmTrip */
+.choose-seats__action-bar {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  max-width: none;
+  margin-block-start: 2rem;
+  margin-left: 0;
+  margin-right: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-block: 1rem;
+  padding-inline: max(var(--space-4), calc((100vw - var(--choose-content-max)) / 2));
+  min-height: 5.3125rem;
+  border: none;
+  border-top: 1px solid #f1f5f9;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 -0.625rem 2.5rem rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.25rem);
+}
+
+.choose-seats__action-bar-inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--choose-action-inner-max);
+  min-height: 3.25rem;
+  padding: 0;
+}
+
+.choose-seats__action-bar-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
+}
+
+.choose-seats__action-bar-label {
+  font-family: var(--font-family-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1rem;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.choose-seats__action-bar-amount {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 0;
+}
+
+.choose-seats__action-bar-amount-main {
+  font-family: var(--font-family-ui);
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 2rem;
+  letter-spacing: -0.0375rem;
+  color: #191c1e;
+}
+
+.choose-seats__action-bar-amount-suffix {
+  font-family: var(--font-family-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  letter-spacing: -0.0375rem;
+  color: #94a3b8;
+}
+
+/* Figma: 201×52, padding 12px 40px — matches ConfirmTrip */
+.choose-seats__cta.button.button--primary {
+  flex: none;
+  min-width: 12.5625rem;
+  min-height: 3.25rem;
+  padding-block: 0.75rem;
+  padding-inline: 2.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 0.625rem 1.875rem rgba(18, 28, 42, 0.08);
+  background: linear-gradient(101.25deg, #0054b5 0%, #7ba0ff 100%);
+}
+
+/* 320–360px: keep price + pill in one row — matches ConfirmTrip */
+@media (max-width: 22.5rem) {
+  .choose-seats__action-bar {
+    padding-inline: 0.75rem;
+  }
+
+  .choose-seats__action-bar-inner {
+    flex-wrap: nowrap;
+    gap: 0.5rem 0.75rem;
+  }
+
+  .choose-seats__action-bar-price {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .choose-seats__action-bar-amount-main {
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+  }
+
+  .choose-seats__cta.button.button--primary {
+    min-width: 0;
+    padding-inline: 1rem;
+    white-space: nowrap;
+  }
+}

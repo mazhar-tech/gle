@@ -1,0 +1,316 @@
+@import '../TextField/TextField.css';
+
+.select-field__shell {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.select-field__shell--open {
+  z-index: 4000;
+}
+
+.select-field__trigger {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.select-field--home {
+  gap: 0;
+}
+
+.select-field--home .text-field__control {
+  min-height: 2.5rem;
+  border: 1px solid #d5d7da;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(10, 13, 18, 0.05);
+}
+
+.select-field--home .select-field__value {
+  padding-block: 0.5rem;
+  padding-inline: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  color: #000000;
+}
+
+.select-field--home .text-field__trailing {
+  padding-inline-end: 0.75rem;
+  color: #414651;
+}
+
+.select-field__trigger:focus-visible {
+  outline: none;
+}
+
+.select-field__value {
+  display: block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 0;
+  padding-block: var(--field-input-padding-block);
+  padding-inline: var(--field-input-padding-inline);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  line-height: var(--space-6);
+  color: var(--field-input-color);
+}
+
+.select-field__value--placeholder {
+  color: var(--field-placeholder-color);
+}
+
+.select-field__trigger .text-field__chevron {
+  transition: transform 0.2s ease;
+}
+
+.select-field__trigger--open .text-field__chevron {
+  transform: rotate(180deg);
+}
+
+.select-field__list {
+  position: absolute;
+  z-index: 5000;
+  left: 0;
+  right: 0;
+  top: calc(100% + var(--space-2));
+  margin: 0;
+  padding: var(--space-2);
+  list-style: none;
+  max-height: min(16.5rem, 45vh);
+  overflow-y: auto;
+  border: 1px solid var(--field-border);
+  border-radius: var(--field-radius);
+  background-color: var(--field-bg);
+  box-shadow:
+    0 0.25rem 0.75rem rgba(18, 28, 42, 0.06),
+    0 0.75rem 2rem rgba(0, 84, 181, 0.1);
+}
+
+.select-field__option {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  line-height: var(--line-height-normal);
+  color: var(--field-input-color);
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.select-field__option--muted {
+  color: var(--field-placeholder-color);
+}
+
+.select-field__option:hover,
+.select-field__option--highlight {
+  background-color: rgba(0, 84, 181, 0.08);
+  color: #0054b5;
+}
+
+.select-field__option--muted.select-field__option--highlight,
+.select-field__option--muted:hover {
+  color: #0054b5;
+}
+
+.select-field__option[aria-selected='true'] {
+  background: linear-gradient(
+    101.25deg,
+    rgba(0, 84, 181, 0.1) 0%,
+    rgba(123, 160, 255, 0.14) 100%
+  );
+  color: #0054b5;
+  box-shadow: inset 0 0 0 1px rgba(0, 84, 181, 0.12);
+}
+
+.select-field__option[aria-selected='true'].select-field__option--highlight {
+  background: linear-gradient(
+    101.25deg,
+    rgba(0, 84, 181, 0.16) 0%,
+    rgba(123, 160, 255, 0.2) 100%
+  );
+}
+
+.select-field__list::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.select-field__list::-webkit-scrollbar-track {
+  margin: var(--space-1);
+  background: transparent;
+}
+
+.select-field__list::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(195, 198, 215, 0.6);
+}
+
+.select-field__list::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 84, 181, 0.25);
+}
+
+/* Date picker panel (variant="date") */
+.select-field__calendar-panel {
+  position: absolute;
+  z-index: 5000;
+  left: 0;
+  right: 0;
+  top: calc(100% + var(--space-2));
+  padding: var(--space-4);
+  border: 1px solid var(--field-border);
+  border-radius: var(--field-radius);
+  background-color: var(--field-bg);
+  box-shadow:
+    0 0.25rem 0.75rem rgba(18, 28, 42, 0.06),
+    0 0.75rem 2rem rgba(0, 84, 181, 0.1);
+}
+
+.select-field__calendar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-block-end: var(--space-4);
+}
+
+.select-field__calendar-title {
+  flex: 1;
+  text-align: center;
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  line-height: var(--line-height-tight);
+  color: var(--field-input-color);
+}
+
+.select-field__calendar-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--field-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-muted);
+  font-family: var(--font-family-ui);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #0054b5;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.select-field__calendar-nav-btn:hover:not(:disabled) {
+  background-color: rgba(0, 84, 181, 0.08);
+  border-color: rgba(0, 84, 181, 0.25);
+}
+
+.select-field__calendar-nav-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 84, 181, 0.2);
+}
+
+.select-field__calendar-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.select-field__calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-1);
+  margin-block-end: var(--space-2);
+}
+
+.select-field__calendar-weekday {
+  text-align: center;
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--field-placeholder-color);
+}
+
+.select-field__calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-1);
+}
+
+.select-field__calendar-day {
+  aspect-ratio: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--field-input-color);
+  cursor: pointer;
+  transition:
+    background-color 0.12s ease,
+    color 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.select-field__calendar-day:hover:not(:disabled) {
+  background-color: rgba(0, 84, 181, 0.08);
+  color: #0054b5;
+}
+
+.select-field__calendar-day:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 84, 181, 0.25);
+}
+
+.select-field__calendar-day--outside {
+  opacity: 0.38;
+  font-weight: 400;
+}
+
+.select-field__calendar-day--today:not(.select-field__calendar-day--selected) {
+  box-shadow: inset 0 0 0 1px rgba(0, 84, 181, 0.35);
+}
+
+.select-field__calendar-day--selected {
+  background: linear-gradient(
+    101.25deg,
+    #0054b5 0%,
+    #7ba0ff 100%
+  );
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.select-field__calendar-day--selected:hover:not(:disabled) {
+  color: #ffffff;
+}
+
+.select-field__calendar-day:disabled {
+  opacity: 0.22;
+  cursor: not-allowed;
+  pointer-events: none;
+}
