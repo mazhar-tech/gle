@@ -1,4 +1,4 @@
-import busHeroImage from '../../assets/images/Premium-Bus.jpg'
+import busHeroImage from '../../assets/images/Luxury-coach.png'
 
 export type PaymentMethodId = 'card' | 'paypal'
 
@@ -37,30 +37,30 @@ export const MAKE_PAYMENT_DUMMY_DATA = {
   },
   trust: {
     title: 'Encrypted checkout',
-    subtitle: '256-bit TLS protects your payment on this page.',
-    badgeLabel: 'PCI LEVEL 1',
-    partnerLabel: 'DigiCert EV',
+    subtitle: 'Your payment data is fully protected',
+    badgeLabel: 'POWERED BY',
+    
   },
   primaryCta: {
     label: 'Pay now',
   },
   legal: {
-    line: 'By placing this order, you authorize us to charge your card for the amount above.',
+    line: 'By clicking "Pay Now", you agree to our policies.',
     links: [
-      { label: 'Refund policy', href: '#' },
-      { label: 'Privacy', href: '#' },
+      { label: 'Terms & Conditions', href: '/terms' },
+      { label: 'Refund Policy', href: '#' },
     ],
   },
   summary: {
     headerImageSrc: busHeroImage,
     headerImageAlt: 'Luxury coach bus interior',
-    tripTypePill: 'Luxury coach bus',
+    tripTypePill: 'Trip ID: GLE-7',
     from: { label: 'From', city: 'New York City' },
     to: { label: 'To', city: 'Buffalo' },
     chips: [
       { icon: 'calendar' as const, text: 'Oct 24, 2024 • 09:00 AM' },
-      { icon: 'seat' as const, text: 'Trip ID GLE-7' },
-      { icon: 'clock' as const, text: '7h 45m' },
+      { icon: 'user-person' as const, text: 'Trip ID GLE-7' },
+      { icon: 'seat' as const, text: 'Seats: 12A, 12B' },
     ],
     fees: [
       { label: 'Total base fare', amount: '$90.00' },

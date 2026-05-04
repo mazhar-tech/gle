@@ -1,3 +1,4 @@
+import { TermsCircleCheckIcon } from '../../assets/icons'
 import { TERMS_PAGE } from './Terms.constants'
 import './Terms.css'
 
@@ -44,7 +45,9 @@ export function Terms() {
               <ul className="terms__list">
                 {sections.responsibilities.bullets.map((item) => (
                   <li key={item} className="terms__list-item">
-                    <span className="terms__list-marker" aria-hidden="true" />
+                    <span className="terms__list-marker" aria-hidden="true">
+                      <TermsCircleCheckIcon />
+                    </span>
                     <span className="terms__list-text">{item}</span>
                   </li>
                 ))}

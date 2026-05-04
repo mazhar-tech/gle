@@ -4,8 +4,8 @@ import {
   ArrowRightIcon,
   CalendarOutlineIcon,
   LinkArrowIcon,
-  LocationTargetIcon,
-  PinMarkerIcon,
+  PinIcon,
+  TargetIcon,
 } from '../../assets/icons'
 import { Button } from '../../components/Button/Button'
 import { SelectField } from '../../components/SelectField/SelectField'
@@ -50,7 +50,7 @@ export function FindTrip() {
               name={form.origin.name}
               value={origin}
               onChange={setOrigin}
-              leading={<LocationTargetIcon />}
+              leading={<TargetIcon />}
               options={[...originOptions]}
             />
             <SelectField
@@ -59,7 +59,7 @@ export function FindTrip() {
               name={form.destination.name}
               value={destination}
               onChange={setDestination}
-              leading={<PinMarkerIcon />}
+              leading={<PinIcon />}
               options={[...destinationOptions]}
             />
             <SelectField

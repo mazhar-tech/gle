@@ -1,12 +1,17 @@
-import heroImage from '../../assets/images/Container.jpg'
-import cardMiami from '../../assets/images/Premium-Bus.jpg'
-import cardArt from '../../assets/images/Container.jpg'
+import heroImage from '../../assets/images/Home_header_Image.jpg'
+import cardArt from '../../assets/images/Frame.png'
+import tripCardImage1 from '../../assets/images/Card-Images/Image1.png'
+import tripCardImage2 from '../../assets/images/Card-Images/Image2.png'
+import tripCardImage3 from '../../assets/images/Card-Images/Image3.png'
+import tripCardImage4 from '../../assets/images/Card-Images/Image4.png'
+import ContainerImage from '../../assets/images/Container.png'
 
 export const HOME_DUMMY_DATA = {
   hero: {
     imageSrc: heroImage,
     imageAlt: 'Coach travel at sunset',
-    title: 'Discover, Travel with GLE',
+    titleLead: 'Discover, Travel with ',
+    titleAccent: 'GLE',
     subtitle: 'One destination for all your travel needs — trips with GLE.',
     ctaLabel: 'Explore now',
     ctaTo: '/find-trip',
@@ -25,17 +30,19 @@ export const HOME_DUMMY_DATA = {
     submitTo: '/find-trip',
   },
   trips: {
-    pill: 'GLE trips',
-    title: 'GLE Trips Discover, Explore, Experience Beaches of Miami',
+    pill: 'Curated travel experiences',
+    titleAccent: 'GLE Trips',
+    titleLine1Rest: 'Discover, Explore, Experience',
+    titleLine2: 'Beaches of Miami',
     description:
-      'Curated routes, transparent pricing, and premium comfort—book coastal getaways and city breaks in minutes.',
+      'Immerse yourself in the vibrant culture and crystalline waters of the Atlantic coast with our hand-selected luxury itineraries.',
     ctaLabel: 'View all trips',
     ctaTo: '/find-trip',
     cards: [
       {
         id: '1',
-        imageSrc: cardMiami,
-        imageAlt: 'Miami beachfront',
+        imageSrc: tripCardImage1,
+        imageAlt: 'Miami oceanfront skyline along turquoise water',
         title: 'Miami Beachfront',
         location: 'Miami Beach, FL',
         duration: '3 days',
@@ -44,8 +51,8 @@ export const HOME_DUMMY_DATA = {
       },
       {
         id: '2',
-        imageSrc: cardArt,
-        imageAlt: 'Art deco architecture',
+        imageSrc: tripCardImage2,
+        imageAlt: 'Historic Art Deco building on Ocean Drive',
         title: 'Art Deco District',
         location: 'Miami Beach, FL',
         duration: '2 days',
@@ -54,8 +61,8 @@ export const HOME_DUMMY_DATA = {
       },
       {
         id: '3',
-        imageSrc: cardMiami,
-        imageAlt: 'Yacht on the water',
+        imageSrc: tripCardImage3,
+        imageAlt: 'Luxury yacht on open water',
         title: 'Yacht Experience',
         location: 'Miami, FL',
         duration: '1 day',
@@ -64,8 +71,8 @@ export const HOME_DUMMY_DATA = {
       },
       {
         id: '4',
-        imageSrc: cardArt,
-        imageAlt: 'City nightlife',
+        imageSrc: tripCardImage4,
+        imageAlt: 'Miami nightlife scene with neon lighting',
         title: 'Nightlife Culture',
         location: 'Miami, FL',
         duration: '2 nights',
@@ -81,14 +88,11 @@ export const HOME_DUMMY_DATA = {
       "GLE is more than a travel platform — it's a unified ecosystem built to connect every part of your journey. From booking your stay to finding the perfect ride, we make travel effortless, transparent, and tailored to you.",
     ctaLabel: 'Explore now',
     ctaTo: '/find-trip',
-    collage: {
-      mainSrc: cardMiami,
-      secondarySrc: cardArt,
-      tertiarySrc: heroImage,
-    },
+    imageSrc: cardArt,
+    imageAlt: 'Travelers enjoying the journey with a plane in the sky',
   },
   features: {
-    pill: 'Why choose us',
+    pill: 'Featured Tour Packages',
     title: 'Amazing featured tour package around the world',
     description: "Explore the world's most iconic destinations with GLE.",
     items: [
@@ -107,7 +111,7 @@ export const HOME_DUMMY_DATA = {
     ],
     ctaLabel: 'Explore all',
     ctaTo: '/find-trip',
-    imageSrc: heroImage,
+    imageSrc: ContainerImage,
     imageAlt: 'Travelers exploring a destination',
   },
   testimonials: {

@@ -15,7 +15,10 @@ export function HomeHero({ hero }: { hero: Hero }) {
       </div>
       <div className="home__hero-inner">
         <div className="home__hero-copy">
-          <h1 className="home__hero-title">{hero.title}</h1>
+          <h1 className="home__hero-title">
+            <span className="home__hero-title-text">{hero.titleLead}</span>
+            <span className="home__hero-title-accent">{hero.titleAccent}</span>
+          </h1>
           <p className="home__hero-subtitle">{hero.subtitle}</p>
           <Link to={hero.ctaTo} className="home__btn home__btn--hero">
             <span>{hero.ctaLabel}</span>

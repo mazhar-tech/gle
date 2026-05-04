@@ -16,20 +16,33 @@ export function HomeFaq({ faq }: { faq: Faq }) {
         <ul className="home__faq-list">
           {faq.items.map((item) => {
             const open = openFaqId === item.id
+            const panelId = `home-faq-panel-${item.id}`
+            const triggerId = `home-faq-trigger-${item.id}`
             return (
               <li key={item.id} className={`home__faq-item${open ? ' home__faq-item--open' : ''}`}>
                 <button
                   type="button"
+                  id={triggerId}
                   className="home__faq-trigger"
                   aria-expanded={open}
+                  aria-controls={panelId}
                   onClick={() => setOpenFaqId(open ? null : item.id)}
                 >
-                  <span className="home__faq-icon" aria-hidden>
-                    {open ? '−' : '+'}
+                  <span className="home__faq-icon-wrap" aria-hidden>
+                    <span className="home__faq-icon">{open ? '−' : '+'}</span>
                   </span>
                   <span className="home__faq-question">{item.question}</span>
                 </button>
-                {open ? <p className="home__faq-answer">{item.answer}</p> : null}
+                {open ? (
+                  <p
+                    id={panelId}
+                    className="home__faq-answer"
+                    role="region"
+                    aria-labelledby={triggerId}
+                  >
+                    {item.answer}
+                  </p>
+                ) : null}
               </li>
             )
           })}

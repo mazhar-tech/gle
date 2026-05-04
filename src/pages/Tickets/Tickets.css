@@ -146,6 +146,37 @@
   height: 100%;
 }
 
+@media (max-width: 47.99rem) {
+  .tickets__top {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  .tickets__header {
+    flex: 1 1 auto;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .tickets__title,
+  .tickets__subtitle {
+    text-align: center;
+  }
+
+  .tickets__subtitle {
+    max-width: none;
+  }
+
+  .tickets__calendar-btn {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
 /* Trip summary card */
 .tickets__summary {
   box-sizing: border-box;
@@ -674,20 +705,26 @@
 
 .tickets__perf-notch {
   position: absolute;
-  top: -10px;
+  top: 50%;
   width: 24px;
   height: 24px;
-  border-radius: 9999px;
+  border-radius: 50%;
+  pointer-events: none;
 }
 
+/* Half-circles centered on the card side: clip keeps only the semicircle inside the ticket */
 .tickets__perf-notch--left {
-  left: -36px;
-  background: #7c3aed;
+  left: 0;
+  background: var(--t-notch-left);
+  transform: translate(-50%, -50%);
+  clip-path: inset(0 0 0 50%);
 }
 
 .tickets__perf-notch--right {
-  right: -36px;
-  background: #0ea5e9;
+  right: 0;
+  background: var(--t-notch-right);
+  transform: translate(50%, -50%);
+  clip-path: inset(0 50% 0 0);
 }
 
 /* QR block — Figma overlay 498×416, inner 320 + caption */
@@ -707,7 +744,7 @@
 .tickets__qr-stack {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   width: 320px;
   max-width: 100%;
   margin-inline: auto;
@@ -722,7 +759,7 @@
   align-items: flex-start;
   width: 320px;
   max-width: 100%;
-  padding: 12px;
+  padding: 30px;
   background: #ffffff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   border-radius: 20px;
@@ -753,6 +790,7 @@
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 2.4px;
+  text-align: center; margin-top: 16px;
   text-transform: uppercase;
   color: #004ac6;
 }

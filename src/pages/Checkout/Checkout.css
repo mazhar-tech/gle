@@ -589,6 +589,15 @@
     padding-bottom: clamp(1.25rem, 4vw, 2rem);
   }
 
+  .checkout__header {
+    align-items: center;
+  }
+
+  .checkout__title,
+  .checkout__subtitle {
+    text-align: center;
+  }
+
   .checkout__main {
     gap: 1.5rem;
   }

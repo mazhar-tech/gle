@@ -1,4 +1,4 @@
-import { ClockIcon, LocationTargetIcon, MailEnvelopeIcon, TicketStubIcon } from '../../assets/icons'
+import { Bus, LocationTargetIcon, MailEnvelopeIcon, ShareIcon } from '../../assets/icons'
 import { BOOKING_DETAILS_PAGE } from './BookingDetails.constants'
 import './BookingDetails.css'
 
@@ -20,7 +20,7 @@ export function BookingDetails() {
                 <span className="booking-details__status-dot" aria-hidden />
                 <span className="booking-details__status-text">{d.statusPill}</span>
               </div>
-              <p className="booking-details__head-total">{d.headerTotal}</p>
+              <p className="booking-details__head-total">{d.header}</p>
             </header>
 
             <div className="booking-details__card-body">
@@ -54,8 +54,8 @@ export function BookingDetails() {
                   </div>
 
                   <div className="booking-details__boarding">
-                    <span className="booking-details__boarding-icon" aria-hidden>
-                      <ClockIcon />
+                    <span  aria-hidden>
+                      <Bus />
                     </span>
                     <div className="booking-details__boarding-copy">
                       <p className="booking-details__boarding-label">{d.boarding.label}</p>
@@ -82,15 +82,15 @@ export function BookingDetails() {
                   <div className="booking-details__action-row">
                     <button type="button" className="booking-details__btn-primary">
                       <span className="booking-details__btn-primary-icon" aria-hidden>
-                        <MailEnvelopeIcon />
+                        <MailEnvelopeIcon fill='#fff' />
                       </span>
                       <span>{d.actions.resendEmail}</span>
                     </button>
                     <button type="button" className="booking-details__btn-secondary">
                       <span className="booking-details__btn-secondary-icon" aria-hidden>
-                        <TicketStubIcon />
+                        <ShareIcon />
                       </span>
-                      <span>{d.actions.downloadTicket}</span>
+                      <span>{d.actions.shareBooking}</span>
                     </button>
                   </div>
                 </div>
@@ -124,12 +124,18 @@ export function BookingDetails() {
 
           <section className="booking-details__map-card" aria-label="Route map">
             <div className="booking-details__map-inner">
-              <div className="booking-details__map-layer" aria-hidden />
+              <iframe
+                className="booking-details__map-frame"
+                title={d.mapEmbed.title}
+                src={d.mapEmbed.src}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
               <div className="booking-details__map-gradient" aria-hidden />
               <div className="booking-details__map-chip">
                 <span className="booking-details__map-chip-shadow" aria-hidden />
                 <div className="booking-details__map-chip-body">
-                  <span className="booking-details__map-chip-icon-wrap" aria-hidden>
+                  <span aria-hidden>
                     <LocationTargetIcon />
                   </span>
                   <div className="booking-details__map-chip-text">

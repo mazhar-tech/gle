@@ -105,8 +105,14 @@ export function Navbar({ variant = 'default' }: { variant?: NavbarVariant }) {
             <button type="button" className="navbar__icon-btn" aria-label={actions.notificationsAriaLabel}>
               <BellIcon />
             </button>
-            <button type="button" className="navbar__account">
-              <span className="navbar__account-label">{actions.signInLabel}</span>
+            <button
+              type="button"
+              className="navbar__account"
+              aria-label={actions.signInLabel}
+            >
+              <span className="navbar__account-label" aria-hidden="true">
+                {actions.signInLabel}
+              </span>
               <span className="navbar__account-avatar">
                 <AvatarChevron />
               </span>

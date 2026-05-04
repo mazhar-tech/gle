@@ -165,7 +165,7 @@
 
 .payment-success__booking-meta {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1.5rem 1rem;
   padding-top: 1.5rem;
 }
@@ -528,6 +528,6 @@
   }
 
   .payment-success__booking-meta {
-    grid-template-columns: 1fr;
+    gap: 1rem 0.75rem;
   }
 }

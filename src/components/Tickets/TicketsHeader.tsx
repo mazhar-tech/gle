@@ -1,4 +1,4 @@
-import { CalendarOutlineIcon } from '../../assets/icons'
+import { ShareIcon } from '../../assets/icons'
 import type { TicketsPageData } from '../../pages/Tickets/Tickets.constants'
 
 export function TicketsHeader({ page }: { page: TicketsPageData }) {
@@ -10,9 +10,9 @@ export function TicketsHeader({ page }: { page: TicketsPageData }) {
       </header>
       <button type="button" className="tickets__calendar-btn">
         <span className="tickets__calendar-btn-icon" aria-hidden>
-          <CalendarOutlineIcon />
+          <ShareIcon />
         </span>
-        <span>{page.addToCalendarLabel}</span>
+        <span>{page.shareLabel}</span>
       </button>
     </div>
   )

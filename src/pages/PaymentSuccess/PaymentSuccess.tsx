@@ -1,39 +1,56 @@
-import { CheckMarkIcon, LinkArrowIcon, PinMarkerIcon, RouteArrowIcon } from '../../assets/icons'
-import { PAYMENT_SUCCESS_DUMMY_DATA } from './PaymentSuccess.constants'
-import './PaymentSuccess.css'
+import { Link } from "react-router-dom";
+import {
+  CheckMarkIcon,
+  PinMarkerIcon,
+  RouteArrowIcon,
+  ShareIcon,
+} from "../../assets/icons";
+import { PAYMENT_SUCCESS_DUMMY_DATA } from "./PaymentSuccess.constants";
+import "./PaymentSuccess.css";
 
 export function PaymentSuccess() {
-  const { page, booking, trip, actions, footnote } = PAYMENT_SUCCESS_DUMMY_DATA
+  const { page, booking, trip, actions, footnote } = PAYMENT_SUCCESS_DUMMY_DATA;
 
   return (
     <article className="payment-success">
       <div className="payment-success__main">
         <header className="payment-success__hero">
-          <div className="payment-success__success-icon-wrap" aria-hidden>
-            <span className="payment-success__success-icon-shadow" />
-            <span className="payment-success__success-icon-inner">
-              <CheckMarkIcon />
-            </span>
+          <div aria-hidden>
+            <CheckMarkIcon />
           </div>
           <h1 className="payment-success__title">{page.title}</h1>
           <p className="payment-success__subtitle">{page.subtitle}</p>
         </header>
 
-        <section className="payment-success__card" aria-labelledby="payment-success-booking-heading">
+        <section
+          className="payment-success__card"
+          aria-labelledby="payment-success-booking-heading"
+        >
           <div className="payment-success__booking-head">
-            <p id="payment-success-booking-heading" className="payment-success__eyebrow">
+            <p
+              id="payment-success-booking-heading"
+              className="payment-success__eyebrow"
+            >
               {booking.referenceLabel}
             </p>
-            <p className="payment-success__reference">{booking.referenceCode}</p>
+            <p className="payment-success__reference">
+              {booking.referenceCode}
+            </p>
           </div>
 
           <div className="payment-success__booking-meta">
             <div className="payment-success__meta-block">
-              <p className="payment-success__meta-label">{booking.travelDateLabel}</p>
-              <p className="payment-success__meta-value">{booking.travelDate}</p>
+              <p className="payment-success__meta-label">
+                {booking.travelDateLabel}
+              </p>
+              <p className="payment-success__meta-value">
+                {booking.travelDate}
+              </p>
             </div>
             <div className="payment-success__meta-block">
-              <p className="payment-success__meta-label">{booking.passengersLabel}</p>
+              <p className="payment-success__meta-label">
+                {booking.passengersLabel}
+              </p>
               <p className="payment-success__meta-value payment-success__meta-value--row">
                 <span className="payment-success__passengers-icon" aria-hidden>
                   <RouteArrowIcon />
@@ -46,23 +63,35 @@ export function PaymentSuccess() {
           <div className="payment-success__total-box">
             <p className="payment-success__meta-label">{booking.totalLabel}</p>
             <p className="payment-success__total-line">
-              <span className="payment-success__total-amount">{booking.totalAmount}</span>
-              <span className="payment-success__total-currency">{booking.totalCurrency}</span>
+              <span className="payment-success__total-amount">
+                {booking.totalAmount}
+              </span>
+              <span className="payment-success__total-currency">
+                {booking.totalCurrency}
+              </span>
             </p>
           </div>
         </section>
 
-        <section className="payment-success__card payment-success__card--trip" aria-labelledby="payment-success-trip-heading">
+        <section
+          className="payment-success__card payment-success__card--trip"
+          aria-labelledby="payment-success-trip-heading"
+        >
           <div className="payment-success__trip-head">
             <div className="payment-success__trip-title-row">
               <span className="payment-success__trip-pin" aria-hidden>
                 <PinMarkerIcon />
               </span>
-              <h2 id="payment-success-trip-heading" className="payment-success__trip-title">
+              <h2
+                id="payment-success-trip-heading"
+                className="payment-success__trip-title"
+              >
                 {trip.sectionTitle}
               </h2>
             </div>
-            <span className="payment-success__status-pill">{trip.statusPill}</span>
+            <span className="payment-success__status-pill">
+              {trip.statusPill}
+            </span>
           </div>
 
           <div className="payment-success__timeline">
@@ -78,11 +107,13 @@ export function PaymentSuccess() {
                   <div className="payment-success__stop-body">
                     <div className="payment-success__stop-meta">
                       <span className="payment-success__stop-kind">
-                        {stop.kind === 'depart' ? 'Depart' : 'Arrive'}
+                        {stop.kind === "depart" ? "Depart" : "Arrive"}
                       </span>
                     </div>
                     <p className="payment-success__stop-city">{stop.city}</p>
-                    <p className="payment-success__stop-station">{stop.station}</p>
+                    <p className="payment-success__stop-station">
+                      {stop.station}
+                    </p>
                     <p className="payment-success__stop-when">{stop.when}</p>
                   </div>
                 </li>
@@ -102,23 +133,30 @@ export function PaymentSuccess() {
               </p>
             </div>
             <div className="payment-success__footer-block">
-              <p className="payment-success__meta-label">{trip.passengerLabel}</p>
-              <p className="payment-success__meta-value">{trip.passengerName}</p>
+              <p className="payment-success__meta-label">
+                {trip.passengerLabel}
+              </p>
+              <p className="payment-success__meta-value">
+                {trip.passengerName}
+              </p>
             </div>
           </div>
         </section>
 
         <div className="payment-success__actions">
-          <a href={actions.downloadReceiptHref} className="payment-success__btn-secondary">
+          <Link
+            to={actions.downloadReceiptHref}
+            className="payment-success__btn-secondary"
+          >
             <span className="payment-success__btn-secondary-icon" aria-hidden>
-              <LinkArrowIcon />
+              <ShareIcon />
             </span>
             <span>{actions.downloadReceiptLabel}</span>
-          </a>
+          </Link>
         </div>
 
         <p className="payment-success__footnote">{footnote}</p>
       </div>
     </article>
-  )
+  );
 }

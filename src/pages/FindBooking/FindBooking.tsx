@@ -1,6 +1,6 @@
 import { type ChangeEvent, type FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ArrowRightIcon, TicketStubIcon, UserPersonIcon } from '../../assets/icons'
+import { ArrowRightIcon, Ticket, UserPersonIcon } from '../../assets/icons'
 import { FIND_BOOKING_DUMMY_DATA } from './FindBooking.constants'
 import './FindBooking.css'
 
@@ -32,7 +32,7 @@ export function FindBooking() {
               </label>
               <div className="find-booking__input-shell">
                 <span className="find-booking__input-icon find-booking__input-icon--ticket" aria-hidden>
-                  <TicketStubIcon />
+                  <Ticket />
                 </span>
                 <input
                   id={form.bookingCode.id}
