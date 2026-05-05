@@ -75,7 +75,9 @@ export function HomePlatformFeatures({ platformFeatures }: { platformFeatures: P
                 </div>
                 <div>
                   <p className="home__platform-route-price">{route.price}</p>
-                  {route.flag ? <p className="home__platform-route-flag">{route.flag}</p> : null}
+                  {'flag' in route && route.flag ? (
+                    <p className="home__platform-route-flag">{route.flag}</p>
+                  ) : null}
                 </div>
               </div>
             ))}
