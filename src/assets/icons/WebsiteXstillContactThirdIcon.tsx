@@ -1,0 +1,8 @@
+export function WebsiteXstillContactThirdIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M13.3333 3.3335H2.66659C1.93021 3.3335 1.33325 3.93045 1.33325 4.66683V11.3335C1.33325 12.0699 1.93021 12.6668 2.66659 12.6668H13.3333C14.0696 12.6668 14.6666 12.0699 14.6666 11.3335V4.66683C14.6666 3.93045 14.0696 3.3335 13.3333 3.3335Z" stroke="#60A5FA" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M1.33325 6.6665H14.6666" stroke="#60A5FA" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}

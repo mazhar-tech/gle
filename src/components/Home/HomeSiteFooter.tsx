@@ -1,5 +1,14 @@
 import { Link } from 'react-router-dom'
 import gleLogo from '../../assets/gle-logo.svg'
+import {
+  FacebookSocialIcon,
+  FooterCallIcon,
+  FooterEmailIcon,
+  FooterLocationIcon,
+  InstagramSocialIcon,
+  TwitterSocialIcon,
+  YoutubeSocialIcon,
+} from '../../assets/icons'
 import type { HomeDummyData } from '../../pages/Home/Home.constants'
 
 type SiteFooter = HomeDummyData['siteFooter']
@@ -30,13 +39,16 @@ export function HomeSiteFooter({ siteFooter }: { siteFooter: SiteFooter }) {
           <p className="home__site-footer-tagline">{siteFooter.tagline}</p>
           <div className="home__site-footer-social">
             <a href="#" className="home__social-btn" aria-label="Facebook">
-              f
+              <FacebookSocialIcon />
             </a>
             <a href="#" className="home__social-btn" aria-label="Twitter">
-              x
+              <TwitterSocialIcon />
             </a>
             <a href="#" className="home__social-btn" aria-label="Instagram">
-              in
+              <InstagramSocialIcon />
+            </a>
+            <a href="#" className="home__social-btn" aria-label="Youtube">
+              <YoutubeSocialIcon />
             </a>
           </div>
         </div>
@@ -66,10 +78,14 @@ export function HomeSiteFooter({ siteFooter }: { siteFooter: SiteFooter }) {
           <div>
             <h3 className="home__site-footer-heading">Contact info</h3>
             <ul className="home__site-footer-contact">
-              <li>{siteFooter.contact.phone}</li>
-              <li>{siteFooter.contact.email}</li>
               <li>
-                {siteFooter.contact.addressLine1}
+                <FooterCallIcon /> {siteFooter.contact.phone}
+              </li>
+              <li>
+                <FooterEmailIcon /> {siteFooter.contact.email}
+              </li>
+              <li>
+                <FooterLocationIcon /> {siteFooter.contact.addressLine1}
                 <br />
                 {siteFooter.contact.addressLine2}
               </li>

@@ -1,75 +1,191 @@
 .about {
-  display: block;
-  width: 100%;
-}
-
-.about__header {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  margin-bottom: var(--space-8);
+  gap: 1.5rem;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.about__hero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(11, 107, 203, 0.12);
+  background: linear-gradient(135deg, rgba(11, 107, 203, 0.08) 0%, rgba(123, 160, 255, 0.06) 100%);
+}
+
+.about__pill {
+  width: fit-content;
+  border-radius: 999px;
+  border: 1px solid rgba(11, 107, 203, 0.18);
+  background: rgba(11, 107, 203, 0.08);
+  padding: 0.3125rem 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+  color: #0b6bcb;
 }
 
 .about__title {
-  font-size: var(--font-size-2xl);
-  font-weight: 700;
-  line-height: var(--line-height-tight);
-  color: var(--color-text);
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #102033;
 }
 
 .about__lede {
+  margin: 0;
   font-size: var(--font-size-md);
   line-height: var(--line-height-normal);
-  color: var(--color-text-muted);
-  max-width: 40rem;
+  color: #556579;
+  max-width: 44rem;
 }
 
-.about__section {
+.about__split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.about__card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-5);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  background-color: var(--color-bg-muted);
+  gap: 0.75rem;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.875rem;
+  background: #ffffff;
+}
+
+.about__card--mission {
+  box-shadow: 0 10px 28px rgba(11, 107, 203, 0.08);
+}
+
+.about__card--vision {
+  box-shadow: 0 10px 28px rgba(10, 20, 40, 0.05);
 }
 
 .about__heading {
+  margin: 0;
   font-size: var(--font-size-lg);
-  font-weight: 600;
+  font-weight: 800;
   line-height: var(--line-height-tight);
-  color: var(--color-text);
+  color: #102033;
 }
 
 .about__text {
+  margin: 0;
   font-size: var(--font-size-sm);
   line-height: var(--line-height-normal);
-  color: var(--color-text-muted);
+  color: #556579;
+}
+
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.about__stat {
+  border-radius: 0.875rem;
+  border: 1px solid rgba(11, 107, 203, 0.12);
+  background: #f8fbff;
+  padding: 1rem;
+}
+
+.about__stat h3 {
+  margin: 0;
+  font-size: 1.75rem;
+  line-height: 1.1;
+  font-weight: 900;
+  color: #0b6bcb;
+}
+
+.about__stat p {
+  margin: 0.4rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  color: #556579;
+}
+
+.about__values {
+  padding: 1.25rem;
+  border-radius: 0.875rem;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+.about__value-list {
+  margin: 0.875rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  color: #556579;
+}
+
+.about__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.875rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.875rem;
+  background: #102033;
+  color: #ffffff;
+}
+
+.about__cta p {
+  margin: 0;
+}
+
+.about__cta a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.375rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: #0b6bcb;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
 }
 
 @media (min-width: 48rem) {
-  .about__header {
-    gap: var(--space-4);
-    margin-bottom: var(--space-10);
+  .about {
+    gap: 2rem;
   }
 
-  .about__title {
-    font-size: var(--font-size-3xl);
+  .about__hero {
+    padding: 2rem;
   }
 
-  .about__lede {
-    font-size: var(--font-size-lg);
+  .about__card,
+  .about__values {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 52rem) {
+  .about__split,
+  .about__stats {
+    grid-template-columns: 1fr;
   }
 
-  .about__section {
-    padding: var(--space-8);
+  .about__cta {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .about__heading {
-    font-size: var(--font-size-xl);
-  }
-
-  .about__text {
-    font-size: var(--font-size-md);
+  .about__cta a {
+    width: 100%;
   }
 }

@@ -1,5 +1,5 @@
 import { QRCodeSVG } from 'qrcode.react'
-import { BoardPassIcon } from '../../assets/icons'
+import { TicketSeatNumberIcon } from '../../assets/icons'
 import type { TicketsCardData } from '../../pages/Tickets/Tickets.constants'
 
 export function TicketCard({ ticket }: { ticket: TicketsCardData }) {
@@ -19,7 +19,7 @@ export function TicketCard({ ticket }: { ticket: TicketsCardData }) {
           <button type="button" className="tickets__board-btn">
             <span className="tickets__board-btn-shade" aria-hidden />
             <span className="tickets__board-btn-icon" aria-hidden>
-              <BoardPassIcon />
+              <TicketSeatNumberIcon />
             </span>
             <span className="tickets__board-btn-label">{ticket.boardLabel}</span>
           </button>

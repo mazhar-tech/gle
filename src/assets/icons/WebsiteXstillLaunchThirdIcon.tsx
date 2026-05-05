@@ -1,0 +1,21 @@
+export function WebsiteXstillLaunchThirdIcon() {
+  return (
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 15 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <path
+        d="M13.75 4.375L8.4375 9.6875L5.3125 6.5625L1.25 10.625"
+        stroke="#60A5FA"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M10 4.375H13.75V8.125" stroke="#60A5FA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}

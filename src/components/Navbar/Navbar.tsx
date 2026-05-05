@@ -10,11 +10,15 @@ import {
 import { NAVBAR_DUMMY_DATA } from './Navbar.constants.ts'
 import './Navbar.css'
 
-export type NavbarVariant = 'default' | 'hero'
+export type NavbarVariant = 'default' | 'hero' | 'website-xstill'
 
 export function Navbar({ variant = 'default' }: { variant?: NavbarVariant }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [hasLanguageSelection, setHasLanguageSelection] = useState(false)
+  const isHero = variant === 'hero'
+  const isWebsiteXstill = variant === 'website-xstill'
+  const isDefault = variant === 'default'
+  const useHomeActions = isHero || isDefault
   const location = useLocation()
   const {
     nav,
@@ -42,7 +46,7 @@ export function Navbar({ variant = 'default' }: { variant?: NavbarVariant }) {
   }, [menuOpen])
 
   return (
-    <header className={`navbar${variant === 'hero' ? ' navbar--hero' : ''}`}>
+    <header className={`navbar${isHero ? ' navbar--hero' : ''}${isWebsiteXstill ? ' navbar--website-xstill' : ''}`}>
       {menuOpen ? (
         <div
           className="navbar__backdrop"
@@ -67,56 +71,89 @@ export function Navbar({ variant = 'default' }: { variant?: NavbarVariant }) {
           </button>
 
           <div className="navbar__brand">
-            <Link to={brand.homePath} className="navbar__logo-link">
-              <img src={brand.logoSrc} alt={brand.logoAlt} className="navbar__logo" />
-            </Link>
+            {isHero ? (
+              <Link to={brand.homePath} className="navbar__logo-link">
+                <img src={brand.logoSrc} alt={brand.logoAlt} className="navbar__logo" />
+              </Link>
+            ) : (
+              <Link to={brand.homePath} className="navbar__wordmark">
+                GLE
+              </Link>
+            )}
           </div>
 
           <div className="navbar__actions">
-            <label className="navbar__ghost">
-              {hasLanguageSelection ? (
-                <span
-                  className={`navbar__country-flag navbar__country-flag--${selectedLanguageOption.code}`}
-                  aria-hidden="true"
-                />
-              ) : (
-                <span className="navbar__ghost-icon" aria-hidden="true">
-                  <GlobeIcon />
-                </span>
-              )}
-              <span className="navbar__ghost-label">{selectedLanguageOption.shortLabel}</span>
-              <select
-                className="navbar__language-select"
-                aria-label={actions.languageSelectAriaLabel}
-                value={selectedLanguage}
-                onChange={(event) => {
-                  setSelectedLanguage(event.target.value)
-                  setHasLanguageSelection(true)
-                }}
-              >
-                {actions.languages.map(({ code, flag, label }) => (
-                  <option key={code} value={code}>
-                    {flag} {label}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <span className="navbar__divider" aria-hidden="true" />
-            <button type="button" className="navbar__icon-btn" aria-label={actions.notificationsAriaLabel}>
-              <BellIcon />
-            </button>
-            <button
-              type="button"
-              className="navbar__account"
-              aria-label={actions.signInLabel}
-            >
-              <span className="navbar__account-label" aria-hidden="true">
-                {actions.signInLabel}
-              </span>
-              <span className="navbar__account-avatar">
-                <AvatarChevron />
-              </span>
-            </button>
+            {useHomeActions ? (
+              <>
+                <label className="navbar__ghost">
+                  {hasLanguageSelection ? (
+                    <span
+                      className={`navbar__country-flag navbar__country-flag--${selectedLanguageOption.code}`}
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <span className="navbar__ghost-icon" aria-hidden="true">
+                      <GlobeIcon />
+                    </span>
+                  )}
+                  <span className="navbar__ghost-label">{selectedLanguageOption.shortLabel}</span>
+                  <select
+                    className="navbar__language-select"
+                    aria-label={actions.languageSelectAriaLabel}
+                    value={selectedLanguage}
+                    onChange={(event) => {
+                      setSelectedLanguage(event.target.value)
+                      setHasLanguageSelection(true)
+                    }}
+                  >
+                    {actions.languages.map(({ code, flag, label }) => (
+                      <option key={code} value={code}>
+                        {flag} {label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <span className="navbar__divider" aria-hidden="true" />
+                <button type="button" className="navbar__icon-btn" aria-label={actions.notificationsAriaLabel}>
+                  <BellIcon />
+                </button>
+                <button
+                  type="button"
+                  className="navbar__account"
+                  aria-label={actions.signInLabel}
+                >
+                  <span className="navbar__account-label" aria-hidden="true">
+                    {actions.signInLabel}
+                  </span>
+                  <span className="navbar__account-avatar">
+                    <AvatarChevron />
+                  </span>
+                </button>
+              </>
+            ) : (
+              <>
+                <div className="navbar__language-toggle" role="group" aria-label={actions.languageSelectAriaLabel}>
+                  <span className="navbar__language-toggle-icon" aria-hidden="true">
+                    <GlobeIcon />
+                  </span>
+                  {actions.languages.map(({ code, shortLabel }) => (
+                    <button
+                      key={code}
+                      type="button"
+                      className={`navbar__language-option${
+                        code === selectedLanguage ? ' navbar__language-option--active' : ''
+                      }`}
+                      onClick={() => setSelectedLanguage(code)}
+                    >
+                      {shortLabel}
+                    </button>
+                  ))}
+                </div>
+                <Link to={actions.primaryCtaTo} className="navbar__primary-cta">
+                  {actions.primaryCtaLabel}
+                </Link>
+              </>
+            )}
           </div>
 
           <div
@@ -141,7 +178,6 @@ export function Navbar({ variant = 'default' }: { variant?: NavbarVariant }) {
                     className={({ isActive }) =>
                       `navbar__link${isActive ? ' navbar__link--active' : ''}`
                     }
-                    end={'end' in link ? link.end : undefined}
                   >
                     <span className="navbar__link-text">{link.label}</span>
                   </NavLink>
