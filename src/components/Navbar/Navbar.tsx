@@ -46,7 +46,11 @@ export function Navbar({ variant = 'default' }: { variant?: NavbarVariant }) {
   }, [menuOpen])
 
   return (
-    <header className={`navbar${isHero ? ' navbar--hero' : ''}${isWebsiteXstill ? ' navbar--website-xstill' : ''}`}>
+    <header
+      className={`navbar${isHero ? ' navbar--hero' : ''}${isWebsiteXstill ? ' navbar--website-xstill' : ''}${
+        menuOpen ? ' navbar--menu-open' : ''
+      }`}
+    >
       {menuOpen ? (
         <div
           className="navbar__backdrop"
