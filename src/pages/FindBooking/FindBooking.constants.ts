@@ -1,4 +1,4 @@
-import scenicImage from '../../assets/images/Premium-Bus.jpg'
+import scenicImage from '../../assets/images/Scenic-travel-view.png'
 
 export const FIND_BOOKING_DUMMY_DATA = {
   page: {
@@ -27,6 +27,6 @@ export const FIND_BOOKING_DUMMY_DATA = {
     caption: 'Scenic travel',
   },
   navigation: {
-    afterSubmitPath: '/select-trip',
+    afterSubmitPath: '/booking-details',
   },
 } as const

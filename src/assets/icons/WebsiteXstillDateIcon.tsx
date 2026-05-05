@@ -1,0 +1,29 @@
+export function WebsiteXstillDateIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g clipPath="url(#xstill-date-icon-clip)">
+        <path d="M5 1.25V3.75" stroke="#8899AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M10 1.25V3.75" stroke="#8899AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+        <path
+          d="M11.875 2.5H3.125C2.43464 2.5 1.875 3.05964 1.875 3.75V12.5C1.875 13.1904 2.43464 13.75 3.125 13.75H11.875C12.5654 13.75 13.125 13.1904 13.125 12.5V3.75C13.125 3.05964 12.5654 2.5 11.875 2.5Z"
+          stroke="#8899AA"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path d="M1.875 6.25H13.125" stroke="#8899AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M5 8.75H5.00625" stroke="#8899AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M7.5 8.75H7.50625" stroke="#8899AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M10 8.75H10.0063" stroke="#8899AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M5 11.25H5.00625" stroke="#8899AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M7.5 11.25H7.50625" stroke="#8899AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M10 11.25H10.0063" stroke="#8899AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+      </g>
+      <defs>
+        <clipPath id="xstill-date-icon-clip">
+          <rect width="15" height="15" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  )
+}

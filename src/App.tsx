@@ -16,17 +16,21 @@ import { Home } from './pages/Home/Home'
 import { Tickets } from './pages/Tickets/Tickets'
 import { ErrorScreen } from './pages/ErrorScreen/ErrorScreen'
 import { NotFound } from './pages/NotFound/NotFound'
+import { WebsiteXstill } from './pages/WebsiteXstill/WebsiteXstill'
 import './App.css'
 
 function AppRoutes() {
   const { pathname } = useLocation()
   const isHome = pathname === '/'
+  const isWebsiteXstill = pathname === '/website-xstill'
   const showGlobalFooter = !isHome
 
   return (
     <div className={`app${isHome ? ' app--home' : ''}`}>
-      {!isHome ? <Navbar /> : null}
-      <main className={`app__main${isHome ? ' app__main--home' : ''}`}>
+      {!isHome ? <Navbar variant={isWebsiteXstill ? 'website-xstill' : 'default'} /> : null}
+      <main
+        className={`app__main${isHome ? ' app__main--home' : ''}${isWebsiteXstill ? ' app__main--website-xstill' : ''}`}
+      >
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/find-trip" element={<FindTrip />} />
@@ -41,6 +45,7 @@ function AppRoutes() {
           <Route path="/about" element={<About />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/booking-details" element={<BookingDetails />} />
+          <Route path="/website-xstill" element={<WebsiteXstill />} />
           <Route path="/error" element={<ErrorScreen />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

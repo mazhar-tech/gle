@@ -59,7 +59,7 @@ export function HomeSearchCard({ search }: { search: Search }) {
           </div>
           <button
             type="button"
-            className=""
+            className="home__search-swap"
             aria-label="Swap origin and destination"
             onClick={swapLocations}
           >

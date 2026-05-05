@@ -47,6 +47,17 @@
   color: var(--find-trip-subtitle);
 }
 
+@media (max-width: 47.9375rem) {
+  .find-trip__header {
+    align-items: center;
+  }
+
+  .find-trip__title,
+  .find-trip__subtitle {
+    text-align: center;
+  }
+}
+
 .find-trip__card {
   position: relative;
   z-index: 2;

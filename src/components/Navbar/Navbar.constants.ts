@@ -2,7 +2,6 @@ import gleLogo from '../../assets/gle-logo.svg'
 
 export const NAVBAR_LANGUAGE_OPTIONS = [
   { code: 'en', shortLabel: 'EN', label: 'English', flag: '🇬🇧' },
-  { code: 'es', shortLabel: 'ES', label: 'Spanish', flag: '🇪🇸' },
   { code: 'fr', shortLabel: 'FR', label: 'French', flag: '🇫🇷' },
 ] as const
 
@@ -22,15 +21,16 @@ export const NAVBAR_DUMMY_DATA = {
     languages: NAVBAR_LANGUAGE_OPTIONS,
     notificationsAriaLabel: 'View notifications',
     signInLabel: 'Sign in',
+    primaryCtaLabel: 'Book a Demo',
+    primaryCtaTo: '/find-trip',
   },
   drawer: {
     closeMenuAriaLabel: 'Close menu',
   },
   navLinks: [
-    { to: '/', label: 'Home', end: true },
-    { to: '/find-trip', label: 'Find trip' },
-    { to: '/find-booking', label: 'Find booking' },
-    { to: '/about', label: 'About' },
-    { to: '/terms', label: 'Terms' },
+    { to: '/website-xstill', label: 'website-still' },
+    { to: '/find-trip', label: 'How It Works' },
+    { to: '/select-trip', label: 'Business Value' },
+    { to: '/make-payment', label: 'Pricing' },
   ],
 } as const

@@ -103,6 +103,17 @@
   color: #414754;
 }
 
+@media (max-width: 47.9375rem) {
+  .choose-seats__header {
+    align-items: center;
+  }
+
+  .choose-seats__title,
+  .choose-seats__subtitle {
+    text-align: center;
+  }
+}
+
 .choose-seats__trip-card {
   box-sizing: border-box;
   width: 100%;

@@ -98,6 +98,17 @@
   color: #414754;
 }
 
+@media (max-width: 47.9375rem) {
+  .confirm-trip__header {
+    align-items: center;
+  }
+
+  .confirm-trip__title,
+  .confirm-trip__subtitle {
+    text-align: center;
+  }
+}
+
 .confirm-trip__bento {
   display: flex;
   flex-direction: row;

@@ -2,11 +2,11 @@ export const BOOKING_DETAILS_PAGE = {
   title: 'Booking Details',
   subtitle: 'Manage your journey and travel documents',
   statusPill: 'Confirmed',
-  headerTotal: '$142.50',
+  header: 'GL-8829-X',
   journeyLabel: 'Journey route',
   boarding: {
-    label: 'Boarding window',
-    value: 'Please arrive at least 20 minutes before departure for premium check-in.',
+    label: 'CARRIER SERVICE',
+    value: 'Vantage Atmospheric Express • Bus #402',
   },
   stops: [
     {
@@ -14,14 +14,14 @@ export const BOOKING_DETAILS_PAGE = {
       city: 'Los Angeles',
       station: 'Union Station — Gate 4',
       time: '08:15 AM',
-      timeMeta: 'Departure',
+      timeMeta: 'Oct 24, 2024',
     },
     {
       kind: 'destination' as const,
       city: 'San Diego',
       station: 'Santa Fe Depot — Platform 1',
       time: '12:30 PM',
-      timeMeta: 'Arrival',
+      timeMeta: 'Oct 24, 2024',
     },
   ],
   travelerLabel: 'Traveler details',
@@ -31,9 +31,9 @@ export const BOOKING_DETAILS_PAGE = {
   classValue: 'Premium',
   actions: {
     resendEmail: 'Resend Email',
-    downloadTicket: 'Download Ticket',
+    shareBooking: 'Share Booking',
   },
-  fareLabel: 'Fare breakdown',
+  fareLabel: 'DETAILED FARE BREAKDOWN',
   fareRows: [
     { label: 'Base fare', amount: '$120.00' },
     { label: 'Taxes & fees', amount: '$22.50' },
@@ -42,10 +42,15 @@ export const BOOKING_DETAILS_PAGE = {
   fareTotal: '$142.50',
   cardFooter: {
     message: 'Need to make changes to your reservation?',
-    cta: 'Manage Booking',
+    cta: 'Manage Trip',
   },
   mapChip: {
-    label: 'Live status',
-    value: 'On schedule',
+    label: 'ESTIMATED TRAVEL TIME',
+    value: '6h 30m',
+  },
+  /** OpenStreetMap embed — bbox covers Los Angeles → San Diego corridor (no API key). */
+  mapEmbed: {
+    title: 'Map: Los Angeles to San Diego',
+    src: 'https://www.openstreetmap.org/export/embed.html?bbox=-118.7%2C32.5%2C-116.8%2C34.2&layer=mapnik',
   },
 } as const

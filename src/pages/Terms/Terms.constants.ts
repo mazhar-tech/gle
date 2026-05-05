@@ -1,7 +1,7 @@
 export const TERMS_PAGE = {
   title: 'Terms & Conditions',
   lede: 'Please read carefully before proceeding',
-  footerNote: 'Last updated · May 2026',
+  footerNote: 'ACKNOWLEDGMENT',
   sections: {
     intro: {
       title: '1. Introduction',

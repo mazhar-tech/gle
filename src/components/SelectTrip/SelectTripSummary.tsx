@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { CalendarIcon, EditPencilIcon, MapPinIcon, RouteArrowIcon } from '../../assets/icons'
+import { CalendarIcon, EditPencilIcon, MapPinIcon, SelectTripBetweenIcon } from '../../assets/icons'
 import type { SelectTripSummaryData } from '../../pages/SelectTrip/SelectTrip.constants'
 
 export interface SelectTripSummaryProps {
@@ -20,7 +20,7 @@ export function SelectTripSummary({ summary }: SelectTripSummaryProps) {
               <p className="select-trip__summary-route">
                 <span>{summary.origin}</span>
                 <span aria-hidden>
-                  <RouteArrowIcon />
+                  <SelectTripBetweenIcon />
                 </span>
                 <span className="select-trip__summary-route-destination">{summary.destination}</span>
               </p>

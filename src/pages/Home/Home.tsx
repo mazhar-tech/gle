@@ -21,16 +21,16 @@ export function Home() {
       <ScrollReveal delay={0.07}>
         <HomeTrips trips={d.trips} />
       </ScrollReveal>
-      <ScrollReveal delay={0.1}>
+      <ScrollReveal delay={0.13}>
         <HomeAbout about={d.about} />
       </ScrollReveal>
-      <ScrollReveal delay={0.13}>
+      <ScrollReveal delay={0.19}>
         <HomeFeatures features={d.features} />
       </ScrollReveal>
-      <ScrollReveal delay={0.16}>
+      <ScrollReveal delay={0.25}>
         <HomeTestimonials testimonials={d.testimonials} />
       </ScrollReveal>
-      <ScrollReveal delay={0.19}>
+      <ScrollReveal delay={0.28}>
         <HomeFaq faq={d.faq} />
       </ScrollReveal>
       <HomeSiteFooter siteFooter={d.siteFooter} />
